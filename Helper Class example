@@ -1,0 +1,25 @@
+// public - other classes can see the class/method
+// class - declaring the start of a class. There can also be inner classes
+// static - declares the method is not part of an instance of the class but part of the class itself. This means you do not have to instantiate the class to use this method.
+// You can also instatiate the object and not use static but you will have to have a constuctor.
+// void - the method will not return any value. If it should return a value replace void with the value type.
+// Trigger.NEW returns a List of the record type the trigger is acting on. So This declares the correct type that the trigger will pass in.
+
+// This class does not perform any useful action, it just contains examples of common statements in APEX
+public class testOBO {
+
+    
+    public static void example(List<Account> accountList) {
+        
+        // Example of a query that will return one unique value
+        // You have to declare every field you want to use in the SOQL query
+        // If you want to query a custom field then you have to append __c to the end of the name
+        Account acc = [SELECT id, name FROM Account WHERE id = ''];
+        
+        // If there may be more than one value returned make sure to declare the variable as a list
+        List<Contact> contactList = [SELECT id, name, email FROM Contact WHERE name = 'John'];
+        
+        
+        
+    }
+}
