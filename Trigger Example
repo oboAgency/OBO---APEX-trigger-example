@@ -1,0 +1,13 @@
+// Triggers execute when a record of a certain type is changed
+// Each trigger will work on one object type that is declared when the trigger is created
+// You can declare before or after insert, update and delete
+// Records that fire the after trigger are read only
+// If you need the record id you would have to use the after trigger
+// 
+// Triggers should be short and not have logic in them. Everything should be passed to a helper class.
+// Triggers need to have at least 1% of the code tested
+
+trigger ExampleTrigger on Account (before insert, before update) {
+	ExampleClass.example(Trigger.NEW); 								// All records in a before trigger will be stored in Trigger.NEW
+    															                  // It is important to bulkify every trigger. There will be times multiple records will be inserted or updated at once
+}
